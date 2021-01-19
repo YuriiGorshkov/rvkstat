@@ -61,6 +61,9 @@ vkGetAds <- function(
   # pars answer body
   dataRaw <- content(answer, "parsed", "application/json")
   
+  # download dataRaw
+  return(dataRaw)  
+    
   # to table
   result <- tibble(response = dataRaw$response) %>%
             unnest_wider("response")
