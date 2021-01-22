@@ -25,7 +25,25 @@ vkGetAdPostsReach <- function(
     
   }
   
-  # sep ids
+  # split if there are more than 100 ids
+  numb <- 100
+  divnumb <- length(ids) %/% numb + 1
+  ids_list <- list()
+  
+  for (i in 1:divnumb) {
+    
+    ids_list[[i]] <- ids[1:numb]
+    ids <- ids[-(1:numb)] 
+    
+  }
+  
+  ids_list <- lapply(ids_list, function(x) x[!is.na(x)])
+  
+  # resulting data frame
+  result <- list()
+  
+  for ( i in ids_list )  {
+    # sep ids
   ids <- paste0(ids, collapse = ",")
   
   # API request
