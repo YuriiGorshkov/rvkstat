@@ -42,7 +42,7 @@ vkGetAdPostsReach <- function(
   # resulting data frame
   result <- list()
   
-  for ( i in ids_list )  {
+  for ( i in ids_list )  
     # sep ids
   ids <- paste0(ids, collapse = ",")
   
